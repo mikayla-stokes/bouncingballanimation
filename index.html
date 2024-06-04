@@ -19,6 +19,18 @@
     </style>
 </head>
 <body>
-    <canvas id="arena" width="600" height="400"></canvas>
+    <canvas id="canvas" width="600" height="400"></canvas>
+    <script>
+        class Ball {
+            constructor(x, y, radius, dx, dy, color) {
+                this.x = x;
+                this.y = y;
+                this.radius = radius;
+                this.dx = dx;
+                this.dy = dy;
+                this.color = color;
+            }
+        }
+    </script>
 </body>
 </html>
