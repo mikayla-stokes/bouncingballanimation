@@ -39,8 +39,25 @@
                 ctx.fill();
                 ctx.closePath();
             }
-            const ball = new Ball(200, 160, 20, 2, 2, 'red');
+            update() {
+                const canvas = document.getElementById('canvas');
+                const width = canvas.width;
+                const height = canvas.height;
+
+                this.x += this.dx;
+                this.y += this.dy;
+
+                if (this.x + this.radius > width || this.x - this.radius < 0) {
+                    this.dx = -this.dx;
+                }
+                if (this.y + this.radius > height || this.y - this.radius < 0) {
+                    this.dy = -this.dy;
+                }
+            }
         }
+
+        const ball = new Ball(200, 160, 20, 2, 2, 'red');
+        
     </script>
 </body>
 </html>
