@@ -4,6 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Bouncing Ball Canvas</title>
+    <!-- Creates canvas -->
     <style>
         body {
             display: flex;
@@ -21,6 +22,7 @@
 <body>
     <canvas id="canvas" width="600" height="400"></canvas>
     <script>
+        // Ball constructor with initial properties.
         class Ball {
             constructor(x, y, radius, dx, dy, color) {
                 this.x = x;
@@ -30,6 +32,7 @@
                 this.dy = dy;
                 this.color = color;
             }
+            // draw method for Ball class.
             draw() {
                 const canvas = document.getElementById('canvas');
                 const ctx = canvas.getContext('2d');
@@ -39,6 +42,7 @@
                 ctx.fill();
                 ctx.closePath();
             }
+            // update method with collision detection for Ball class
             update() {
                 const canvas = document.getElementById('canvas');
                 const width = canvas.width;
@@ -57,7 +61,18 @@
         }
 
         const ball = new Ball(200, 160, 20, 2, 2, 'red');
-        
+
+        // animation using setInterval
+        function animate() {
+            const canvas = document.getElementById('canvas');
+            const ctx = canvas.getContext('2d');
+            ctx.clearRect(0, 0, canvas.width, canvas.height);
+
+            ball.update();
+            ball.draw();
+        }
+
+        setInterval(animate, 16);
     </script>
 </body>
 </html>
